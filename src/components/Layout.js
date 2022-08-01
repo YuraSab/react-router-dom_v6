@@ -1,32 +1,31 @@
 import React from 'react';
-import {NavLink, Outlet} from "react-router-dom";
+import {Outlet} from "react-router-dom";
 import "./Latout.css";
+import {CustomLink} from "./CustomLink";
 
 const Layout = () => {
-
-    const setActive = ({isActive}) => isActive ? 'active_link' : 'link';
 
 
   return (
     <div className={'gridDiv'}>
         <header>
             {/* NavLink - same like Link but added css-class "active" if this is current link */}
-            <NavLink className={setActive} to={'/'}>
+            <CustomLink to="/" >
                 <div className={'linkDiv'}>
                     Home
                 </div>
-            </NavLink>
+            </CustomLink>
 
-            <NavLink className={setActive} to={'/about'}>
+            <CustomLink to={'/about'}>
                 <div className={'linkDiv'}>
                     About
                 </div>
-            </NavLink>
-            <NavLink className={setActive} to={'/blog'}>
+            </CustomLink>
+            <CustomLink to={'/blog'}>
                 <div className={'linkDiv'}>
                     Blog
                 </div>
-            </NavLink>
+            </CustomLink>
         </header>
 
         <main>
