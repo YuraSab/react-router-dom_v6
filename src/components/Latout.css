@@ -1,3 +1,12 @@
+.active{
+    color: darkblue;
+    cursor: default;
+}
+
+
+
+
+
 .gridDiv{
     display: flex;
     flex-direction: column;
@@ -21,7 +30,13 @@ header{
     color: white;
     font-weight: bold;
     font-size: 25px;
-    /*padding-left: 50px;*/
+    text-decoration: none;
+}
+
+.active_link {
+    color: darkblue;
+    font-weight: bold;
+    font-size: 25px;
     text-decoration: none;
 }
 
@@ -35,10 +50,9 @@ header{
 }
 
 .linkDiv:hover{
-    background: darkslateblue;
+    background: mediumslateblue;
+    color: darkblue;
 }
-
-
 
 main{
     flex: 1;

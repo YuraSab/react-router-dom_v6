@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link, Outlet} from "react-router-dom";
+import {NavLink, Outlet} from "react-router-dom";
 import "./Latout.css";
 
 const Layout = () => {
@@ -7,22 +7,23 @@ const Layout = () => {
   return (
     <div className={'gridDiv'}>
         <header>
-            <Link className={'link'} to={'/'}>
+            {/* NavLink - same like Link but added css-class "active" if this is current link */}
+            <NavLink className={({isActive}) => isActive ? 'active_link' : 'link'} to={'/'}>
                 <div className={'linkDiv'}>
                     Home
                 </div>
-            </Link>
+            </NavLink>
 
-            <Link className={'link'} to={'/about'}>
+            <NavLink className={({isActive}) => isActive ? 'active_link' : 'link'} to={'/about'}>
                 <div className={'linkDiv'}>
                     About
                 </div>
-            </Link>
-            <Link className={'link'} to={'/blog'}>
+            </NavLink>
+            <NavLink className={({isActive}) => isActive ? 'active_link' : 'link'} to={'/blog'}>
                 <div className={'linkDiv'}>
                     Blog
                 </div>
-            </Link>
+            </NavLink>
         </header>
 
         <main>
