@@ -4,22 +4,25 @@ import "./Latout.css";
 
 const Layout = () => {
 
+    const setActive = ({isActive}) => isActive ? 'active_link' : 'link';
+
+
   return (
     <div className={'gridDiv'}>
         <header>
             {/* NavLink - same like Link but added css-class "active" if this is current link */}
-            <NavLink className={({isActive}) => isActive ? 'active_link' : 'link'} to={'/'}>
+            <NavLink className={setActive} to={'/'}>
                 <div className={'linkDiv'}>
                     Home
                 </div>
             </NavLink>
 
-            <NavLink className={({isActive}) => isActive ? 'active_link' : 'link'} to={'/about'}>
+            <NavLink className={setActive} to={'/about'}>
                 <div className={'linkDiv'}>
                     About
                 </div>
             </NavLink>
-            <NavLink className={({isActive}) => isActive ? 'active_link' : 'link'} to={'/blog'}>
+            <NavLink className={setActive} to={'/blog'}>
                 <div className={'linkDiv'}>
                     Blog
                 </div>
