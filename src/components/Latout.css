@@ -1,0 +1,51 @@
+.gridDiv{
+    display: flex;
+    flex-direction: column;
+}
+
+.white-space{
+    height: 700px;
+}
+
+
+header{
+    height: 100px;
+    background: blueviolet;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+
+.link {
+    color: white;
+    font-weight: bold;
+    font-size: 25px;
+    /*padding-left: 50px;*/
+    text-decoration: none;
+}
+
+
+.linkDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    width: 200px;
+}
+
+.linkDiv:hover{
+    background: darkslateblue;
+}
+
+
+
+main{
+    flex: 1;
+}
+
+
+footer{
+    height: 125px;
+    background: black;color: white;
+}
