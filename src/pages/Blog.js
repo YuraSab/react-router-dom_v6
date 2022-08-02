@@ -7,8 +7,8 @@ const Blog = () => {
     // console.log(useLocation());
     const [searchParams, setSearchParams] = useSearchParams();
     const postQuery = searchParams.get('post') || '';
-
-
+    const latest = searchParams.has('latest');
+    const startsFrom = latest ? 80 : 1;
 
     useEffect(() => {
         fetch(`https://jsonplaceholder.typicode.com/posts`)
@@ -21,7 +21,13 @@ const Blog = () => {
         const form = e.target;
         const query = form.search.value;
 
-        setSearchParams({post: query})
+        const isLatest = form.latest.checked;
+        const params = {}
+
+        if(query.length) params.post = query;
+        if(isLatest) params.latest = true;
+
+        setSearchParams(params);
     }
 
     return (
@@ -31,13 +37,16 @@ const Blog = () => {
             </h1>
             <form autoComplete={'off'} onSubmit={handleSubmit}>
                 <input type={'search'} name={'search'}/>
+                <label style={{padding: '0 1rem'}}> New only
+                    <input type={'checkbox'} name={'latest'}/>
+                </label>
                 <input type={'submit'} value={'Search'}/>
             </form>
 
                 <Link to={'/blog/new'}>Add new post</Link>
             {
                 posts.filter(
-                    post => post.title.includes(postQuery)
+                    post => post.title.includes(postQuery) && post.id >= startsFrom
                 ).map(post => (
                     <Link
                         key={post.id}
