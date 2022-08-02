@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link, Route, Routes} from "react-router-dom";
 
 const About = () => {
 
@@ -7,6 +8,18 @@ const About = () => {
             <h1>
                 About page
             </h1>
+
+                <ul>
+                    <Link to={'contacts'}>Our contacts</Link>
+                </ul>
+                <ul>
+                    <Link to={'team'}>Our team</Link>
+                </ul>
+
+            <Routes>
+                <Route path={'contacts'} element={<h1>Our contacts</h1>}/>
+                <Route path={'team'} element={<h1>Our team</h1>}/>
+            </Routes>
         </div>
     )
 }
