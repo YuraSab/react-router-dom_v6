@@ -1,13 +1,10 @@
-import React from 'react';
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from 'react';
 import {Link} from "react-router-dom";
-import {useLocation} from "react-router";
 
 const Blog = () => {
 
-
     const [posts, setPosts] = useState([]);
-    console.log(useLocation());
+    // console.log(useLocation());
 
 
     useEffect(() => {
@@ -22,6 +19,7 @@ const Blog = () => {
             <h1>
                 Blog page
             </h1>
+                <Link to={'/blog/new'}>Add new post</Link>
             {
                 posts.map(post => (
                     <Link
