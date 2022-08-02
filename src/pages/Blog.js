@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {Link, useSearchParams} from "react-router-dom";
+import {BlogFilter} from "../components/BlogFilter";
 
 const Blog = () => {
 
@@ -16,32 +17,36 @@ const Blog = () => {
             .then(value => setPosts(value))
     }, [])
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        const form = e.target;
-        const query = form.search.value;
-
-        const isLatest = form.latest.checked;
-        const params = {}
-
-        if(query.length) params.post = query;
-        if(isLatest) params.latest = true;
-
-        setSearchParams(params);
-    }
+    // const handleSubmit = (e) => {
+    //     e.preventDefault();
+    //     const form = e.target;
+    //     const query = form.search.value;
+    //
+    //     const isLatest = form.latest.checked;
+    //     const params = {}
+    //
+    //     if(query.length) params.post = query;
+    //     if(isLatest) params.latest = true;
+    //
+    //     setSearchParams(params);
+    // }
 
     return (
         <div>
             <h1>
                 Blog page
             </h1>
-            <form autoComplete={'off'} onSubmit={handleSubmit}>
-                <input type={'search'} name={'search'}/>
-                <label style={{padding: '0 1rem'}}> New only
-                    <input type={'checkbox'} name={'latest'}/>
-                </label>
-                <input type={'submit'} value={'Search'}/>
-            </form>
+            {/*<form autoComplete={'off'} onSubmit={handleSubmit}>*/}
+            {/*    <input type={'search'} name={'search'}/>*/}
+            {/*    <label style={{padding: '0 1rem'}}> New only*/}
+            {/*        <input type={'checkbox'} name={'latest'}/>*/}
+            {/*    </label>*/}
+            {/*    <input type={'submit'} value={'Search'}/>*/}
+            {/*</form>*/}
+
+
+            <BlogFilter postQuery={postQuery} latest={latest} setSearchParams={setSearchParams}/>
+
 
                 <Link to={'/blog/new'}>Add new post</Link>
             {
