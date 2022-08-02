@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link, Route, Routes} from "react-router-dom";
+import {Link, Outlet} from "react-router-dom";
 
 const About = () => {
 
@@ -16,10 +16,11 @@ const About = () => {
                     <Link to={'team'}>Our team</Link>
                 </ul>
 
-            <Routes>
-                <Route path={'contacts'} element={<h1>Our contacts</h1>}/>
-                <Route path={'team'} element={<h1>Our team</h1>}/>
-            </Routes>
+            {/*<Routes>*/}
+            {/*    <Route path={'contacts'} element={<h1>Our contacts</h1>}/>*/}
+            {/*    <Route path={'team'} element={<h1>Our team</h1>}/>*/}
+            {/*</Routes>*/}
+            <Outlet/>
         </div>
     )
 }

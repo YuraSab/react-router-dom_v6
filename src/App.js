@@ -27,7 +27,10 @@ function App() {
                         <Route index element={<Home/>}/>
 
                         {/*                 /* - all that is after '/'                  */}
-                        <Route path={'/about/*'} element={<About/>}/>
+                        <Route path={'/about/*'} element={<About/>}>
+                                <Route path={'contacts'} element={<h1>Our contacts</h1>}/>
+                                <Route path={'team'} element={<h1>Our team</h1>}/>
+                        </Route>
 
                         <Route path={'/about-us'} element={<Navigate to={'/about'} replace/>}/>
                         <Route path={'/blog'} element={<Blog/>}/>
