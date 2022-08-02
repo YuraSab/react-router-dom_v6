@@ -1,10 +1,13 @@
 import React, {useEffect, useState} from 'react';
-import {Link} from "react-router-dom";
+import {Link, useSearchParams} from "react-router-dom";
 
 const Blog = () => {
 
     const [posts, setPosts] = useState([]);
     // console.log(useLocation());
+    const [searchParams, setSearchParams] = useSearchParams();
+    const postQuery = searchParams.get('post') || '';
+
 
 
     useEffect(() => {
@@ -13,15 +16,29 @@ const Blog = () => {
             .then(value => setPosts(value))
     }, [])
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const query = form.search.value;
+
+        setSearchParams({post: query})
+    }
 
     return (
         <div>
             <h1>
                 Blog page
             </h1>
+            <form autoComplete={'off'} onSubmit={handleSubmit}>
+                <input type={'search'} name={'search'}/>
+                <input type={'submit'} value={'Search'}/>
+            </form>
+
                 <Link to={'/blog/new'}>Add new post</Link>
             {
-                posts.map(post => (
+                posts.filter(
+                    post => post.title.includes(postQuery)
+                ).map(post => (
                     <Link
                         key={post.id}
                         to={`/blog/${post.id}`}
