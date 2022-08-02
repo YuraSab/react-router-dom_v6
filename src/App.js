@@ -9,6 +9,7 @@ import {Layout} from "./components/Layout";
 import {SinglePage} from "./pages/SinglePage";
 import {CreatePost} from "./pages/CreatePost";
 import {EditPost} from "./pages/EditPost";
+import {Navigate} from "react-router";
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
                     <Route path={'/'} element={<Layout/>}>
                         <Route index element={<Home/>}/>
                         <Route path={'/about'} element={<About/>}/>
+                        <Route path={'/about-us'} element={<Navigate to={'/about'} replace/>}/>
                         <Route path={'/blog'} element={<Blog/>}/>
                         <Route path={'/blog/:id'} element={<SinglePage/>}/>
                         <Route path={'/blog/:id/edit'} element={<EditPost/>}/>
